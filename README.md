@@ -2,4 +2,4 @@
 My final project
 
 ## member 
-Hi, Hi ,123
+ 丁俊嘉,姜承佑，林凱威, 王文奕
