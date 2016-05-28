@@ -20,21 +20,21 @@ public class ManuPanel extends JPanel implements ActionListener{
 	private JButton hard;
 	private JButton exit;
 	
+	
 	GridBagConstraints gbc;
 	
 	private final int EASY = 0;
 	private final int NORMAL = 1;
 	private final int HARD = 2;
 	
-	protected ImageIcon background = new ImageIcon( getClass().getResource("BACK.png") );
+	private ImageIcon background = new ImageIcon( getClass().getResource("BACK.png") );
 
 	public ManuPanel(){
 		super();
-		repaint();
 		this.setLayout(new GridBagLayout() );
-		
 		gbc = new GridBagConstraints();
-
+		repaint();
+		
 		title = new JTextArea("Jungle Hunting");
 		title.setFont(new Font(null,Font.BOLD,64));
 		title.setEditable(false);;
@@ -84,12 +84,25 @@ public class ManuPanel extends JPanel implements ActionListener{
 	        gbc.gridwidth = gridwidth;
 	    }
 
-
+	 void startGame(int difficult){
+		 removeAll();
+		 repaint();
+		 this.setLayout(new BorderLayout() );
+		 JungleHuntingPanel jhPanel = new JungleHuntingPanel(difficult);
+		 add(jhPanel,BorderLayout.CENTER);
+		 jhPanel.revalidate();
+	 }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == exit){
 			System.exit(0);
+		}else if(e.getSource() == easy){
+			startGame(EASY);
+		}else if(e.getSource() == normal){
+			startGame(EASY);
+		}else if(e.getSource() == hard){
+			startGame(EASY);
 		}
 		
 	}
