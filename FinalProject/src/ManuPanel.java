@@ -23,9 +23,9 @@ public class ManuPanel extends JPanel implements ActionListener{
 	
 	GridBagConstraints gbc;
 	
-	private final int EASY = 0;
-	private final int NORMAL = 1;
-	private final int HARD = 2;
+	private final int EASY = 1;
+	private final int NORMAL = 2;
+	private final int HARD = 3;
 	
 	private ImageIcon background = new ImageIcon( getClass().getResource("BACK.png") );
 
@@ -100,9 +100,9 @@ public class ManuPanel extends JPanel implements ActionListener{
 		}else if(e.getSource() == easy){
 			startGame(EASY);
 		}else if(e.getSource() == normal){
-			startGame(EASY);
+			startGame(NORMAL);
 		}else if(e.getSource() == hard){
-			startGame(EASY);
+			startGame(HARD);
 		}
 		
 	}
