@@ -51,6 +51,7 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 	Thread diedThread;
 	Thread disappearThread;
 	
+	
 	private String timeText;
 	private String scoreText;
 	
@@ -122,7 +123,7 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 			}
 		};
 	
-		disappearThread.setPriority(5);
+		disappearThread.setPriority(1);
 		disappearThread.start();
 	}
 	
@@ -138,7 +139,7 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 			}
 		};
 	
-		diedThread.setPriority(10);
+		diedThread.setPriority(1);
 		diedThread.start();
 	}
 	
@@ -206,7 +207,7 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 		addThread.stop();
 		diedThread.stop();
 		disappearThread.stop();
-		JOptionPane.showMessageDialog(null, "You shooted the teacher!", "Game over", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, "You shot the teacher!", "Game over", JOptionPane.WARNING_MESSAGE);
 		
 		removeAll();
 		repaint();
