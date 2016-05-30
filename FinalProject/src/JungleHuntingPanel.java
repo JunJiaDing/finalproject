@@ -102,6 +102,7 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 				}
 			}
 		};
+		addThread.setPriority(1);
 		addThread.start();
 		
 	}
@@ -121,7 +122,7 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 			}
 		};
 	
-		
+		disappearThread.setPriority(5);
 		disappearThread.start();
 	}
 	
@@ -137,7 +138,7 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 			}
 		};
 	
-		
+		diedThread.setPriority(10);
 		diedThread.start();
 	}
 	
@@ -188,11 +189,12 @@ public class JungleHuntingPanel extends JPanel implements MouseListener, MouseMo
 			if(targets[i]!=null ){
 				if(! targets[i].isDied() ){
 					if(targets[i].shoot(x,y)){
+						repaint();
+						targetDied(i);
+						score = score+ difficult*100;
 						if( targets[i].getType()==TEACHER){
 							gameover();
 						}
-						targetDied(i);
-						score = score*difficult +100;
 					}
 				}
   			}	
